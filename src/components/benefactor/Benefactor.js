@@ -1,7 +1,7 @@
 import React from "react";
-import "./Band.css";
+import "./Benefactor.css";
 
-function Band() {
+function Benefactor() {
   return (
     <div id="band" className="container text-center">
       <h3>THE BAND</h3>
@@ -33,7 +33,7 @@ function Band() {
             <br />
             <a href="#demo" data-toggle="collapse">
               <img
-                src="http://127.0.0.1:8000/media/benefactor/cat_NS5uFUu.jpg.255x255_q85_box-380,67,627,313_crop_detail_scale-0.5.jpg"
+                src="https://www.w3schools.com/bootstrap/bandmember.jpg"
                 className="img-circle person"
                 alt="Random Name"
                 width="255"
@@ -95,4 +95,4 @@ function Band() {
   );
 }
 
-export default Band;
+export default Benefactor;

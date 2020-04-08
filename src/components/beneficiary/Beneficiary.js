@@ -1,7 +1,7 @@
 import React from "react";
-import './Tour.css'
+import './Beneficiary.css'
 
-function Tour() {
+function Beneficiary() {
   return (
     <div id="tour" className="bg-1">
       <div className="container">
@@ -78,4 +78,4 @@ function Tour() {
   );
 }
 
-export default Tour;
+export default Beneficiary;

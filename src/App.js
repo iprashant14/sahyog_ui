@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "jquery/dist/jquery.min.js";
-// import "bootstrap/dist/js/bootstrap.min.js";
-import Navbar from "./components/Navbar/Navbar";
-import Carousel from "./components/Carousel/Carousel";
-import Band from "./components/Band/Band";
-import Tour from "./components/Tour/Tour";
+import Navbar from "./components/navbar/Navbar";
+import Carousel from "./components/carousel/Carousel";
+import Benefactor from "./components/benefactor/Benefactor";
+import Beneficiary from "./components/beneficiary/Beneficiary";
 
 class App extends Component {
   render() {
@@ -13,8 +10,8 @@ class App extends Component {
       <div className="app" id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
         <Navbar />
         <Carousel />
-        <Band />
-        <Tour />
+        <Benefactor />
+        <Beneficiary />
       </div>
     );
   }
