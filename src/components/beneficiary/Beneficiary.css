@@ -51,3 +51,9 @@ h3, h4 {
 .carousel-caption h3 {
     color: #fff !important;
 }
+h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: #111;
+  }
