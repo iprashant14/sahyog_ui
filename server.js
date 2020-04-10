@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 
 app.use('/static', express.static(path.join(__dirname, 'node_modules')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.listen(3001, () =>
   console.log('Express server is running on localhost:3001')

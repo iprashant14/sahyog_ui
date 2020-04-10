@@ -14,26 +14,26 @@ function Carousel() {
 
     <div className="carousel-inner" role="listbox">
         <div className="item active">
-            <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="New York" width="1200" height="700"/>
+            <img src="images/img8.jpg" alt="Carousel" width="1200" height="700"/>
             <div className="carousel-caption">
-                <h3>New York</h3>
-                <p>The atmosphere in New York is lorem ipsum.</p>
+                <h3>Humara Sahyog</h3>
+                <p>Dedication to God is seen in helping the needy!</p>
             </div>
         </div>
 
         <div className="item">
-            <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago" width="1200" height="700"/>
+            <img src="images/img10.jpg" alt="Carousel" width="1200" height="700"/>
             <div className="carousel-caption">
-                <h3>Chicago</h3>
-                <p>Thank you, Chicago - A night we won't forget.</p>
+                <h3>Humara Sahyog</h3>
+                <p>Dedication to God is seen in helping the needy!</p>
             </div>
         </div>
 
         <div className="item">
-            <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="Los Angeles" width="1200" height="700"/>
+            <img src="images/img11.jpg" alt="Carousel" width="1200" height="700"/>
             <div className="carousel-caption">
-                <h3>LA</h3>
-                <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+                <h3>Humara Sahyog</h3>
+                <p>Dedication to God is seen in helping the needy!</p>
             </div>
         </div>
     </div>

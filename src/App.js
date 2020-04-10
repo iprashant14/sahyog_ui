@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import Navbar from "./components/navbar/Navbar";
-import Carousel from "./components/carousel/Carousel";
-import Benefactor from "./components/benefactor/Benefactor";
-import Beneficiary from "./components/beneficiary/Beneficiary";
 import Footer from "./components/footer/Footer";
+import Gallery from "./components/gallery/Gallery";
+import Home from "./components/home/Home";
+import { Switch, Route } from "react-router-dom";
 import Contact from "./components/contact/Contact";
+import Benefactor from "./components/benefactor/Benefactor";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Navbar />
-        <Carousel />
-        <Benefactor />
-        <Beneficiary />
-        <Contact />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/gallery" component={Gallery} />
+
+        </Switch>
         <Footer />
       </div>
     );
