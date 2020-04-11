@@ -33,6 +33,9 @@ function Navbar() {
               <Link to="/gallery">GALLERY</Link>
             </li>
             <li>
+              <Link to="/contributors">CONTRIBUTORS</Link>
+            </li>
+            <li>
               <Link to="#contact">CONTACT</Link>
             </li>
           
