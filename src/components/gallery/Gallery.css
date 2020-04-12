@@ -1,11 +1,15 @@
-.row {
+.customRow {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
-  margin: auto;
+  padding: 4px 4px;
   max-width: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
+  margin-bottom: 1.5%;
+  margin-top: 1.5%;
+  margin-left: 2%;
+  margin-right: 0.1%;
+
 }
 
 /* Create four equal columns that sits next to each other */
@@ -25,8 +29,8 @@
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {
-    flex: 25%;
-    max-width: 25%;
+    flex: 33.33%;
+    max-width: 33.33%;
   }
 }
 
@@ -35,12 +39,38 @@
   .column {
     flex: 100%;
     max-width: 100%;
+    margin-left:7.5% ;
   }
 }
 
 .zoom:hover{
   transform: scale(1.5);
+  transition: transform .5s ease-in-out;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+ 
+.datePicker{
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+  text-align: center;
+  }
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
