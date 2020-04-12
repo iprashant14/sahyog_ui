@@ -1,7 +1,7 @@
 .page li a {
-    border-color: #999;
     color: #333;
     border-radius: 0;
+    border: 1px solid #999 !important;
 }
 
 .page li a:hover, .page li a:focus {
@@ -10,11 +10,11 @@
     color: #000;
 }
 
-.active-page {
+#active-page {
     background: #333;
 }
 
-#active-page a{
+#active-page a {
     border: 1px solid #333;
     background-color: #333;
     color: #fff;
@@ -23,3 +23,8 @@
 #previous-page a, #next-page a{
     border-radius: 0;
 }
+
+/*.disabled a {*/
+    /*color: #f1f1f1;*/
+    /*border: 1px solid #f1f1f1;*/
+/*}*/
