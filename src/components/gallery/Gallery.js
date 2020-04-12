@@ -5,18 +5,27 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
 class Gallery extends Component {
+  state = {
+    startDate: new Date(),
+    imageList1: [],
+    imageList2: [],
+    imageList3: [],
+  };
+
   serviceCallToBeneficiary = (dateToFormat) => {
-    let formattedDate =  dateToFormat.toISOString().substring(0, 10);;
+    let formattedDate = dateToFormat.toISOString().substring(0, 10);
     axios
-      .get("http://localhost:8000/api/beneficiary/", {
+      .get("http://localhost:8000/api/beneficiary", {
         params: {
-          image_date: formattedDate
-        }
+          image_date: formattedDate,
+        },
       })
       .then((response) => {
-        var imageData = response.data.results;
-        if (imageData != null) {
-          this.addToImageList(imageData);
+        if (response.status == 200) {
+          var imageData = response.data.results;
+          if (imageData != null) {
+            this.addToImageList(imageData);
+          }
         }
       })
       .catch((error) => {
@@ -51,13 +60,6 @@ class Gallery extends Component {
     this.serviceCallToBeneficiary(new Date());
   };
 
-  state = {
-    startDate: new Date(),
-    imageList1: [],
-    imageList2: [],
-    imageList3: [],
-  };
-
   handleChange = (date) => {
     this.setState({
       startDate: date,
@@ -72,6 +74,8 @@ class Gallery extends Component {
           <div className="col-sm-12 datePicker" style={{ textAlign: "center" }}>
             <strong>You can view more gallery by selecting date :</strong>{" "}
             <DatePicker
+              minDate={new Date("11/04/2020")}
+              maxDate={new Date()}
               dateFormat="dd/MM/yyyy"
               selected={this.state.startDate}
               onChange={this.handleChange}

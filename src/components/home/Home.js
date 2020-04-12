@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Carousel from "../carousel/Carousel";
 import HomeBenefactor from "../benefactor/HomeBenefactor";
-import Contact from "../contact/Contact";
 
 class Home extends Component{
     render(){
@@ -9,7 +8,6 @@ class Home extends Component{
             <div>
                 <Carousel />
                 <HomeBenefactor />
-                <Contact />
             </div>
         );
     }

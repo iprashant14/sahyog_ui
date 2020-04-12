@@ -1,98 +1,82 @@
-import React from "react";
+import React, { Component } from "react";
 import "./HomeBenefactor.css";
+import axios from "axios";
 
-function HomeBenefactor() {
-  return (
-    <div id="band" className="container text-center">
-      <h3>THE BAND</h3>
-      <p>
-        <em>We love music!</em>
-      </p>
-      <p>
-        We have created a fictional band website. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-      <br />
-      <div className="row" style={{ align: "middle" }}>
-        <div className="col-sm-1">
-          <button>Previous</button>
-        </div>
-        <div className="col-sm-10">
-          <div className="col-sm-4">
-            <p className="text-center">
-              <strong>Name</strong>
-            </p>
-            <br />
-            <a href="#demo" data-toggle="collapse">
-              <img
-                src="https://www.w3schools.com/bootstrap/bandmember.jpg"
-                className="img-circle person"
-                alt="Random Name"
-                width="255"
-                height="255"
-              />
-            </a>
-            <div id="demo" className="collapse">
-              <p>Guitarist and Lead Vocalist</p>
-              <p>Loves long walks on the beach</p>
-              <p>Member since 1988</p>
-            </div>
+class HomeBenefactor extends Component {
+  state = {
+    benefactors: [],
+  };
+
+  serviceCallToBenefactor = () => {
+    axios
+      .get("http://localhost:8000/api/benefactor/random")
+      .then((response) => {
+        if (response.status == 200) {
+          var benefactors = response.data;
+          if (benefactors != null) {
+            console.log(benefactors);
+            this.setState({ benefactors: benefactors });
+          }
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  componentDidMount = () => {
+    this.serviceCallToBenefactor();
+  };
+
+  render() {
+    return (
+      <div id="band" className="container text-center">
+        <h3>OUR CONTRIBUTORS</h3>
+        <p>
+          <em>We love our supporters!</em>
+        </p>
+        <p>
+          Our contributors are important to as because of them only we are able
+          to do help others.
+        </p>
+        <p>
+          Please be one of them and help us to contribute more in this noble
+          work.
+        </p>
+        <br />
+        <div className="row" style={{ align: "middle" }}>
+          <div className="col-sm-12">
+            
+            {
+              	this.state.benefactors.map((benefactor)=>{
+                  return (
+                    <div className="col-sm-4">
+                      <p className="text-center">
+                      <strong>{benefactor.name}</strong>
+                      </p>
+                      <br />
+                      <a href={"#"+benefactor.id} data-toggle="collapse">
+                      <img
+                        src={benefactor.thumbnail_url}
+                        className="img-circle person"
+                        alt="Random Name"
+                        width="255"
+                        height="255"
+                      />
+                      </a>
+                      <div id={benefactor.id} className="collapse">
+                        <p>{benefactor.description}</p>
+                      </div>
+                    </div>
+                  );
+              })
+            }
+            
           </div>
-          <div className="col-sm-4">
-            <p className="text-center">
-              <strong>Name</strong>
-            </p>
-            <br />
-            <a href="#demo" data-toggle="collapse">
-              <img
-                src="https://www.w3schools.com/bootstrap/bandmember.jpg"
-                className="img-circle person"
-                alt="Random Name"
-                width="255"
-                height="255"
-              />
-            </a>
-            <div id="demo" className="collapse">
-              <p>Guitarist and Lead Vocalist</p>
-              <p>Loves long walks on the beach</p>
-              <p>Member since 1988</p>
-            </div>
-          </div>
-          <div className="col-sm-4">
-            <p className="text-center">
-              <strong>Name</strong>
-            </p>
-            <br />
-            <a href="#demo"  aria-expanded="true">
-              <img
-                src="https://www.w3schools.com/bootstrap/bandmember.jpg"
-                className="img-circle person"
-                alt="Random Name"
-                width="255"
-                height="255"
-              />
-            </a>
-            <div id="demo" className="collapse">
-              <p>Guitarist and Lead Vocalist</p>
-              <p>Loves long walks on the beach</p>
-              <p>Member since 1988</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm-1">
-          <button>Next</button>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default HomeBenefactor;

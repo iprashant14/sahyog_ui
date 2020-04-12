@@ -27,22 +27,13 @@ function Navbar() {
               <Link to="/">HOME</Link>
             </li>
             <li>
-              <Link to="#band">BAND</Link>
-            </li>
-            <li>
               <Link to="/gallery">GALLERY</Link>
             </li>
             <li>
               <Link to="/contributors">CONTRIBUTORS</Link>
             </li>
             <li>
-              <Link to="#contact">CONTACT</Link>
-            </li>
-          
-            <li>
-              <a href="#">
-                <span className="glyphicon glyphicon-search"></span>
-              </a>
+              <Link to="/contact">CONTACT</Link>
             </li>
           </ul>
         </div>
