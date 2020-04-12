@@ -1,0 +1,57 @@
+.toolbar-tab {
+    /*background-color: #333222;*/
+    padding: 5px;
+    /*font-size: 18px;*/
+    /*color: #333;*/
+}
+
+.form-control {
+    border: 1px solid #333;
+}
+
+.form-control:focus input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.btn {
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+    border: 1px solid #333;
+}
+
+.btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+}
+
+.open .dropdown-toggle {
+    background-color: #fff !important;
+    color: #333 !important;
+}
+
+.dropdown-menu {
+    min-width: 50px;
+    text-align: center;
+}
+
+.dropdown-menu li a {
+    color: #333 !important;
+    background-color: #fff !important;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f6f6f6 !important;
+}
+
+.search-bar, .page-dropdown {
+    margin-bottom: 2%;
+}
+
+#selected-dropdown-menu a {
+    background-color: #333 !important;
+    color: #fff !important;
+}

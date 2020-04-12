@@ -1,0 +1,25 @@
+.page li a {
+    border-color: #999;
+    color: #333;
+    border-radius: 0;
+}
+
+.page li a:hover, .page li a:focus {
+    border: 1px solid #333;
+    background-color: #f6f6f6;
+    color: #000;
+}
+
+.active-page {
+    background: #333;
+}
+
+#active-page a{
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+}
+
+#previous-page a, #next-page a{
+    border-radius: 0;
+}

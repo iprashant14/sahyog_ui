@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Carousel from "../carousel/Carousel";
-import Benefactor from "../benefactor/Benefactor";
+import HomeBenefactor from "../benefactor/HomeBenefactor";
 import Contact from "../contact/Contact";
 
 class Home extends Component{
@@ -8,7 +8,7 @@ class Home extends Component{
         return(
             <div>
                 <Carousel />
-                <Benefactor />
+                <HomeBenefactor />
                 <Contact />
             </div>
         );
