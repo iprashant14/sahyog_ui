@@ -14,7 +14,7 @@ function Carousel() {
 
     <div className="carousel-inner" role="listbox">
         <div className="item active">
-            <img src="images/img8.jpg" alt="Carousel" width="1200" height="700"/>
+            <img src={`${process.env.PUBLIC_URL}/images/img8.jpg`} alt="Carousel" width="1200" height="700"/>
             <div className="carousel-caption">
                 <h3>Humara Sahyog</h3>
                 <p>Dedication to God is seen in helping the needy!</p>
@@ -22,7 +22,7 @@ function Carousel() {
         </div>
 
         <div className="item">
-            <img src="images/img10.jpg" alt="Carousel" width="1200" height="700"/>
+            <img src={`${process.env.PUBLIC_URL}/images/img10.jpg`} alt="Carousel" width="1200" height="700"/>
             <div className="carousel-caption">
                 <h3>Humara Sahyog</h3>
                 <p>Dedication to God is seen in helping the needy!</p>
@@ -30,7 +30,7 @@ function Carousel() {
         </div>
 
         <div className="item">
-            <img src="images/img11.jpg" alt="Carousel" width="1200" height="700"/>
+            <img src={`${process.env.PUBLIC_URL}/images/img11.jpg`} alt="Carousel" width="1200" height="700"/>
             <div className="carousel-caption">
                 <h3>Humara Sahyog</h3>
                 <p>Dedication to God is seen in helping the needy!</p>

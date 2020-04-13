@@ -45,9 +45,9 @@ class Toolbar extends React.Component {
                     selectedElement={this.state.selectedPerPageLimit} selectDropdown={this.props.selectPerPageLimit}/>
           <Dropdown dropdownButtonTitle="Sort" dropdown={this.state.availbleSortings}
                     selectedElement={this.state.selectedSort} selectDropdown={this.props.selectSorting}/>
-          <button className="btn btn-default" type="button">
-            <span className="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-          </button>
+          {/*<button className="btn btn-default" type="button">*/}
+            {/*<span className="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>*/}
+          {/*</button>*/}
         </div>
       </div>
     );
