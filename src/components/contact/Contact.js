@@ -6,7 +6,7 @@ import { withAlert } from "react-alert";
 class Contact extends Component {
   submitData = (data) => {
     axios
-      .post("http://localhost:8000/api/send_email/", {
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/send_email/`, {
         name: data.get("name"),
         email: data.get("email"),
         comments: data.get("comments"),

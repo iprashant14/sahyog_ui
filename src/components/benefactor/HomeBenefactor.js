@@ -9,7 +9,7 @@ class HomeBenefactor extends Component {
 
   serviceCallToBenefactor = () => {
     axios
-      .get("http://localhost:8000/api/benefactor/random")
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/benefactor/random`)
       .then((response) => {
         if (response.status == 200) {
           var benefactors = response.data;

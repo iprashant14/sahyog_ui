@@ -28,7 +28,7 @@ class Gallery extends Component {
   serviceCallToBeneficiary = (dateToFormat) => {
     let formattedDate = dateToFormat.toISOString().substring(0, 10);
     axios
-      .get("http://localhost:8000/api/beneficiary", {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/beneficiary`, {
         params: {
           image_date: formattedDate,
         },
