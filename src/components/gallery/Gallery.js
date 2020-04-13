@@ -3,16 +3,27 @@ import "./Gallery.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import NoData from "../no_data/NoData";
 
 class Gallery extends Component {
   state = {
     startDate: new Date(),
+    noData:false,
     minDate:new Date("04/11/2020"),
     maxDate:new Date(),
     imageList1: [],
     imageList2: [],
     imageList3: [],
   };
+
+  displayData = () =>{
+    if(!this.state.noData){
+
+      return this.imagesToDisplay();
+    }else{
+      return <NoData />
+    }
+  }
 
   serviceCallToBeneficiary = (dateToFormat) => {
     let formattedDate = dateToFormat.toISOString().substring(0, 10);
@@ -35,58 +46,9 @@ class Gallery extends Component {
       });
   };
 
-  addToImageList = (imageData) => {
-    let imageList1 = [];
-    let imageList2 = [];
-    let imageList3 = [];
-    for (let i = 0; i < imageData.length; i += 3) {
-      if (imageData[i] != null) {
-        imageList1.push(imageData[i].image);
-      }
-      if (imageData[i + 1] != null) {
-        imageList2.push(imageData[i + 1].image);
-      }
-      if (imageData[i + 2] != null) {
-        imageList3.push(imageData[i + 2].image);
-      }
-      
-    }
-    this.setState({
-      imageList1: imageList1,
-      imageList2: imageList2,
-      imageList3: imageList3,
-    });
-  };
-
-  componentDidMount = () => {
-    window.scrollTo(0, 0);
-    this.serviceCallToBeneficiary(new Date());
-  };
-
-  handleChange = (date) => {
-    this.setState({
-      startDate: date,
-    });
-    console.log(this.state.minDate)
-    this.serviceCallToBeneficiary(date);
-  };
-
-  render() {
+  imagesToDisplay = () =>{
     return (
-      <React.Fragment>
-        <div className="row" style={{ maxWidth: "100%" }}>
-          <div className="col-sm-12 datePicker" style={{ textAlign: "center" }}>
-            <strong>You can view more gallery by selecting date :</strong>{" "}
-            <DatePicker
-              maxDate={this.state.maxDate}
-              minDate={this.state.minDate}
-              dateFormat="dd/MM/yyyy"
-              selected={this.state.startDate}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        <div className="row" style={{ maxWidth: "100%" }}>
+      <div className="row" style={{ maxWidth: "100%" }}>
           <div id="gallery" className="customRow">
             <div className="column">
               {this.state.imageList1.map((value, i) => {
@@ -105,6 +67,67 @@ class Gallery extends Component {
             </div>
           </div>
         </div>
+    );
+  }
+  addToImageList = (imageData) => {
+    let imageList1 = [];
+    let imageList2 = [];
+    let imageList3 = [];
+    for (let i = 0; i < imageData.length; i += 3) {
+      if (imageData[i] != null) {
+        imageList1.push(imageData[i].image);
+      }
+      if (imageData[i + 1] != null) {
+        imageList2.push(imageData[i + 1].image);
+      }
+      if (imageData[i + 2] != null) {
+        imageList3.push(imageData[i + 2].image);
+      }
+      
+    }
+    console.log(imageList1.length);
+    if(imageList1.length == 0 && imageList2.length == 0 && imageList3.length == 0){
+
+      this.setState({noData:true});
+    }else{
+      this.setState({
+        noData:false,
+        imageList1: imageList1,
+        imageList2: imageList2,
+        imageList3: imageList3,
+      });
+    }
+    
+  };
+
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+    this.serviceCallToBeneficiary(new Date());
+  };
+
+  handleChange = (date) => {
+    this.setState({
+      startDate: date,
+    });
+    this.serviceCallToBeneficiary(date);
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <div className="row" style={{ maxWidth: "100%" }}>
+          <div className="col-sm-12 datePicker" style={{ textAlign: "center" }}>
+            <strong>You can view more gallery by selecting date :</strong>{" "}
+            <DatePicker
+              maxDate={this.state.maxDate}
+              minDate={this.state.minDate}
+              dateFormat="dd/MM/yyyy"
+              selected={this.state.startDate}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        {this.displayData()}
       </React.Fragment>
     );
   }
