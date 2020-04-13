@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const path = require('path');
 
+require('dotenv').config();
+
 // let cors = require('cors');
 
 const app = express();

@@ -19,19 +19,7 @@ class InfoTab extends React.Component {
               <strong>{this.props.benefactor.name}</strong>
             </p>
             <p>
-              <italic>A philanthropist is someone who engages in philanthropy; donating his or her time, money, and/or
-                reputation to charitable causes.
-              </italic>
-            </p>
-            <p>
-              <italic>A philanthropist is someone who engages in philanthropy; donating his or her time, money, and/or
-                reputation to charitable causes.
-              </italic>
-            </p>
-            <p>
-              <italic>A philanthropist is someone who engages in philanthropy; donating his or her time, money, and/or
-                reputation to charitable causes.
-              </italic>
+              <italic>{this.props.benefactor.description}</italic>
             </p>
           </div>
         </div>

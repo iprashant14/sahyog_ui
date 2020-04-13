@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import Contact from "./components/contact/Contact";
 import Benefactor from "./components/benefactor/Benefactor";
 
+
 class App extends Component {
   render() {
     return (
