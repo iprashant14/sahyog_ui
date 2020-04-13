@@ -7,6 +7,8 @@ import axios from "axios";
 class Gallery extends Component {
   state = {
     startDate: new Date(),
+    minDate:new Date("04/11/2020"),
+    maxDate:new Date(),
     imageList1: [],
     imageList2: [],
     imageList3: [],
@@ -47,12 +49,13 @@ class Gallery extends Component {
       if (imageData[i + 2] != null) {
         imageList3.push(imageData[i + 2].image);
       }
-      this.setState({
-        imageList1: imageList1,
-        imageList2: imageList2,
-        imageList3: imageList3,
-      });
+      
     }
+    this.setState({
+      imageList1: imageList1,
+      imageList2: imageList2,
+      imageList3: imageList3,
+    });
   };
 
   componentDidMount = () => {
@@ -64,6 +67,7 @@ class Gallery extends Component {
     this.setState({
       startDate: date,
     });
+    console.log(this.state.minDate)
     this.serviceCallToBeneficiary(date);
   };
 
@@ -74,8 +78,8 @@ class Gallery extends Component {
           <div className="col-sm-12 datePicker" style={{ textAlign: "center" }}>
             <strong>You can view more gallery by selecting date :</strong>{" "}
             <DatePicker
-              minDate={new Date("11/04/2020")}
-              maxDate={new Date()}
+              maxDate={this.state.maxDate}
+              minDate={this.state.minDate}
               dateFormat="dd/MM/yyyy"
               selected={this.state.startDate}
               onChange={this.handleChange}
