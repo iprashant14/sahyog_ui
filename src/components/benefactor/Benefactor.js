@@ -124,9 +124,8 @@ class Benefactor extends React.Component {
   };
 
   componentDidMount = () => {
-    console.log(process.config);
     axios
-      .get("http://localhost:8000/api/benefactor/", {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/benefactor/`, {
         params: {
           offset: this.state.offset,
           limit: this.state.limit,

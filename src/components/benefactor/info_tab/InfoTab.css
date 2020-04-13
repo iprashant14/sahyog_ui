@@ -1,5 +1,7 @@
 .info-tab {
     background: transparent;
+    -webkit-box-shadow: 0 20px 15px -15px #000000;
+    -moz-box-shadow: 0 20px 15px -15px #000000;
     box-shadow: 0 20px 15px -15px #000000;
     margin: 3% 0 3% 0;
 }
