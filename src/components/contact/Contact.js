@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "./Contact.css";
 import axios from "axios";
-import { withAlert } from 'react-alert';
+import { withAlert } from "react-alert";
 
 class Contact extends Component {
-
   submitData = (data) => {
     axios
       .post("http://localhost:8000/api/send_email/", {
@@ -30,7 +29,6 @@ class Contact extends Component {
   };
 
   render() {
-    
     return (
       <React.Fragment>
         <div id="contact" className="container">
@@ -48,7 +46,7 @@ class Contact extends Component {
               </p>
               <p>
                 <span className="glyphicon glyphicon-phone"></span>Phone: +91
-                8765656565
+                7409178866
               </p>
               <p>
                 <span className="glyphicon glyphicon-envelope"></span>Email:
@@ -120,24 +118,15 @@ class Contact extends Component {
           <div className="tab-content">
             <div id="home" className="tab-pane fade in active">
               <h2>Shubham Teotia</h2>
-              <p>
-                Man, we've been on the road for some time now. Looking forward
-                to lorem ipsum.
-              </p>
+              <p>Software Developer</p>
             </div>
             <div id="menu1" className="tab-pane fade">
               <h2>Shubham Agrawal</h2>
-              <p>
-                Always a pleasure people! Hope you enjoyed it as much as I did.
-                Could I BE.. any more pleased?
-              </p>
+              <p>Software Developer</p>
             </div>
             <div id="menu2" className="tab-pane fade">
               <h2>Prashant Pandey</h2>
-              <p>
-                I mean, sometimes I enjoy the show, but other times I enjoy
-                other things.
-              </p>
+              <p>Software Developer</p>
             </div>
           </div>
         </div>
