@@ -117,7 +117,7 @@ class Gallery extends Component {
       <React.Fragment>
         <div className="row" style={{ maxWidth: "100%" }}>
           <div className="col-sm-12 datePicker" style={{ textAlign: "center" }}>
-            <strong>You can view more gallery by selecting date :</strong>{" "}
+            <strong>You can view more images by selecting date :</strong>{" "}
             <DatePicker
               maxDate={this.state.maxDate}
               minDate={this.state.minDate}

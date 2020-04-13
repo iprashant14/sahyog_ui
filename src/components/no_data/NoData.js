@@ -11,13 +11,13 @@ function NoData() {
                     <h1>
                      Oops!</h1>
                     <h2>
-                        Images not found .Please Change date or go to home. </h2>
+                        Images not found for selected date.</h2>
                     <div className="error-details">
-                        Sorry, an error has occured, Requested page not found!
+                        Please change date or go to home.
                     </div>
                     <div className="error-actions">
                         <Link to="/" className="btn btn-primary btn-lg"><span className="glyphicon glyphicon-home"></span>
-                            Take Me Home </Link>
+                            &nbsp; Take Me Home </Link>
                     </div>
                 </div>
             </div>

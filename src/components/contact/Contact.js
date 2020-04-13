@@ -39,17 +39,17 @@ class Contact extends Component {
 
           <div className="row">
             <div className="col-md-4">
-              <p>Please Drop a note.</p>
+              <p>Please drop a note.</p>
               <p>
                 <span className="glyphicon glyphicon-map-marker"></span>
-                Muradnagar, Ghaziabad
+                &nbsp; Muradnagar, Ghaziabad
               </p>
               <p>
-                <span className="glyphicon glyphicon-phone"></span>Phone: +91
+                <span className="glyphicon glyphicon-phone"></span>&nbsp; Phone: +91
                 7409178866
               </p>
               <p>
-                <span className="glyphicon glyphicon-envelope"></span>Email:
+                <span className="glyphicon glyphicon-envelope"></span>&nbsp; Email:
                 sahyog.humara@gmail.com
               </p>
             </div>

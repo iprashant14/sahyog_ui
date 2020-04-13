@@ -36,7 +36,7 @@ class HomeBenefactor extends Component {
           <em>We love our supporters!</em>
         </p>
         <p>
-          Our contributors are important to as because of them only we are able
+          Our contributors are important to us because of them only we are able
           to do help others.
         </p>
         <p>
