@@ -19,6 +19,7 @@ class Benefactor extends React.Component {
       benefactors: [],
       offset: 0,
       limit: 10,
+      sort: null,
       searchText: null,
       perPagePagination: 10,
     };
@@ -53,8 +54,8 @@ class Benefactor extends React.Component {
     }
   };
 
-  selectPerPageLimit = (currentPerPageLimit, selectedPerPageLimit) => {
-    if(currentPerPageLimit != selectedPerPageLimit) {
+  selectPerPageLimit = (selectedPerPageLimit) => {
+    if(this.state.limit != selectedPerPageLimit) {
       this.setState({
         pagination: {
           count: 0,
@@ -68,9 +69,23 @@ class Benefactor extends React.Component {
     }
   };
 
+  selectSorting = (selectedSort) => {
+    if(this.state.sort != selectedSort) {
+      this.setState({
+        pagination: {
+          count: 0,
+          selectedPage: 1,
+        },
+        offset: 0,
+        sort: selectedSort,
+      }, () => {
+        this.componentDidMount();
+      });
+    }
+  };
+
   search = (searchText) => {
-    console.log(searchText);
-    if (searchText != undefined) {
+    if (searchText != undefined && this.state.searchText != searchText) {
       this.setState({
         pagination: {
           count: 0,
@@ -93,7 +108,9 @@ class Benefactor extends React.Component {
       return (
         <div className="col-sm-12">
 
-          <Toolbar selectPerPageLimit={this.selectPerPageLimit} selectedPerPageLimit={this.state.limit} search={this.search}/>
+          <Toolbar selectPerPageLimit={this.selectPerPageLimit} selectedPerPageLimit={this.state.limit}
+                   selectSorting={this.selectSorting} selectedSort={this.state.sort} search={this.search}
+                   searchText={this.state.searchText}/>
 
           {this.state.benefactors.map(benefactor => (
             <InfoTab benefactor={benefactor}/>
@@ -112,6 +129,7 @@ class Benefactor extends React.Component {
         params: {
           offset: this.state.offset,
           limit: this.state.limit,
+          ordering: this.state.sort,
           search: this.state.searchText,
         }
       })

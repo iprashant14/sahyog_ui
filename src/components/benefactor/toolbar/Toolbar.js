@@ -1,62 +1,53 @@
 import React from "react";
 import "./Toolbar.css";
-
+import Dropdown from "./dropdown/Dropdown";
+import Searchbar from "./searchbar/Searchbar";
 
 class Toolbar extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      searchText: null,
+      searchText: this.props.searchText,
       selectedPerPageLimit: this.props.selectedPerPageLimit,
-      perPageAvailableLimitList: [10, 20, 50]
+      // JSON content api value as keys and display value as value
+      perPageAvailableLimits: {
+        10: "10",
+        20: "20",
+        50: "50"
+      },
+      selectedSort: this.props.selectedSort,
+      availbleSortings: {
+        "name": "Name Asc",
+        "-name": "Name Desc",
+        "created": "Created Asc",
+        "-created": "Created Desc",
+      }
     };
   }
 
   componentWillReceiveProps = (props) => {
     this.setState({
-      selectedPerPageLimit: this.props.selectedPerPageLimit,
-      perPageAvailableLimitList: [10, 20, 50]
-    });
-  };
-
-  changeHandler= (event) => {
-    this.setState({
-        searchText: event.target.value,
-    }, () => {
-      console.log(this.state);
+      searchText: props.searchText,
+      selectedPerPageLimit: props.selectedPerPageLimit,
+      selectedSort: props.selectedSort,
     });
   };
 
   render() {
     return (
       <div className="toolbar-tab">
-        <div className="col-sm-10 search-bar">
-          <div className="input-group">
-            <input type="text" className="form-control" onChange={this.changeHandler} placeholder="Search for..."/>
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="button" onClick={() => this.props.search(this.state.searchText)}>
-                <span className="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-              </button>
-            </span>
-          </div>
+        <div className="col-sm-8">
+          <Searchbar searchText={this.state.searchText} search={this.props.search}/>
         </div>
-        <div className="col-sm-2">
-          <div className="btn-group page-dropdown">
-            <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-              Page <span className="caret" aria-hidden="true"></span>
-            </button>
-            <ul className="dropdown-menu">
-              {this.state.perPageAvailableLimitList.map(perPageLimit => (
-                <li id={this.state.selectedPerPageLimit == perPageLimit ? "selected-dropdown-menu": ""}
-                    onClick={() => this.props.selectPerPageLimit(this.state.selectedPerPageLimit, perPageLimit)}>
-                  <a>{perPageLimit}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="col-sm-4 dropdown-button-tab">
+          <Dropdown dropdownButtonTitle="Page" dropdown={this.state.perPageAvailableLimits}
+                    selectedElement={this.state.selectedPerPageLimit} selectDropdown={this.props.selectPerPageLimit}/>
+          <Dropdown dropdownButtonTitle="Sort" dropdown={this.state.availbleSortings}
+                    selectedElement={this.state.selectedSort} selectDropdown={this.props.selectSorting}/>
+          <button className="btn btn-default" type="button">
+            <span className="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     );
