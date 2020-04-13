@@ -11,7 +11,7 @@ function NoData() {
                     <h1>
                      Oops!</h1>
                     <h2>
-                        404 Not Found</h2>
+                        Images not found .Please Change date or go to home. </h2>
                     <div className="error-details">
                         Sorry, an error has occured, Requested page not found!
                     </div>
