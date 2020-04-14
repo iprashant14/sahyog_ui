@@ -63,13 +63,16 @@
   }
 }
 
- 
-.datePicker{
-  margin-top: 1.5%;
-  margin-bottom: 1%;
-  text-align: center;
-  }
-
 .react-datepicker-popper {
   z-index: 9999 !important;
+}
+
+.date-picker {
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.date-picker-text {
+  margin: 5%;
 }

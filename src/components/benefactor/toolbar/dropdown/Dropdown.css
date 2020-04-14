@@ -1,17 +1,3 @@
-.btn {
-    background-color: #333;
-    color: #f1f1f1;
-    border-radius: 0;
-    transition: .2s;
-    border: 1px solid #333;
-}
-
-.btn:hover, .btn:focus {
-    border: 1px solid #333;
-    background-color: #fff;
-    color: #000;
-}
-
 .open .dropdown-toggle {
     background-color: #fff !important;
     color: #333 !important;

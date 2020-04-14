@@ -1,16 +1,23 @@
-h3,
-h4 {
-  margin: 10px 0 30px 0;
-  letter-spacing: 10px;
-  font-size: 20px;
-  color: #111;
-}
-.container {
-  padding: 80px 120px;
-}
-.nav-tabs li a {
-  color: #777;
-}
 textarea {
   resize: none;
+}
+
+@media screen and (max-width: 991.98px) {
+  #contact {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+/* This is for lg and md*/
+@media screen and (min-width: 992px) {
+  #contact {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
+
+#about-us-content-tab {
+  margin-bottom: 5%;
 }

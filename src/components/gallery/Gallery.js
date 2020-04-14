@@ -9,7 +9,7 @@ class Gallery extends Component {
   state = {
     startDate: new Date(),
     noData:false,
-    minDate:new Date("04/11/2020"),
+    minDate:new Date("03/30/2020"),
     maxDate:new Date(),
     imageList1: [],
     imageList2: [],
@@ -23,7 +23,7 @@ class Gallery extends Component {
     }else{
       return <NoData />
     }
-  }
+  };
 
   serviceCallToBeneficiary = (dateToFormat) => {
     let formattedDate = dateToFormat.toISOString().substring(0, 10);
@@ -68,7 +68,7 @@ class Gallery extends Component {
           </div>
         </div>
     );
-  }
+  };
   addToImageList = (imageData) => {
     let imageList1 = [];
     let imageList2 = [];
@@ -85,7 +85,6 @@ class Gallery extends Component {
       }
       
     }
-    console.log(imageList1.length);
     if(imageList1.length == 0 && imageList2.length == 0 && imageList3.length == 0){
 
       this.setState({noData:true});
@@ -106,18 +105,21 @@ class Gallery extends Component {
   };
 
   handleChange = (date) => {
-    this.setState({
-      startDate: date,
-    });
-    this.serviceCallToBeneficiary(date);
+    if (date != null && date != undefined) {
+      this.setState({
+        startDate: date,
+      }, () => {
+        this.serviceCallToBeneficiary(this.state.startDate)
+      });
+    }
   };
 
   render() {
     return (
       <React.Fragment>
         <div className="row" style={{ maxWidth: "100%" }}>
-          <div className="col-sm-12 datePicker" style={{ textAlign: "center" }}>
-            <strong>You can view more images by selecting date :</strong>{" "}
+          <div className="col-sm-12 text-center date-picker">
+            <strong className="date-picker-text">View more images by selecting date :</strong>{" "}
             <DatePicker
               maxDate={this.state.maxDate}
               minDate={this.state.minDate}

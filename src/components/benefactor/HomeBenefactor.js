@@ -30,8 +30,8 @@ class HomeBenefactor extends Component {
 
   render() {
     return (
-      <div id="band" className="container text-center">
-        <h3>OUR CONTRIBUTORS</h3>
+      <div id="band" className="container text-center random-benefactor">
+        <h3>OUR HELPING HANDS</h3>
         <p>
           <em>We love our supporters!</em>
         </p>

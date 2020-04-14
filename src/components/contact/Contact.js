@@ -31,7 +31,7 @@ class Contact extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="contact" className="container">
+        <div id="contact" className="container-fluid">
           <h3 className="text-center">Contact</h3>
           <p className="text-center">
             <em>We would love to hear from you!</em>
@@ -87,7 +87,7 @@ class Contact extends Component {
                 <br />
                 <div className="row">
                   <div className="col-md-12 form-group">
-                    <button className="btn pull-right" type="submit">
+                    <button className="btn center-block" type="submit" id="btn-contact-send">
                       Send
                     </button>
                   </div>
@@ -97,7 +97,7 @@ class Contact extends Component {
           </div>
           <br />
           <h3 className="text-center">About us !</h3>
-          <ul className="nav nav-tabs">
+          <ul className="nav nav-tabs" id="about-us-tab">
             <li className="active">
               <a data-toggle="tab" href="#home">
                 Shubham Teotia
@@ -115,7 +115,7 @@ class Contact extends Component {
             </li>
           </ul>
 
-          <div className="tab-content">
+          <div className="tab-content" id="about-us-content-tab">
             <div id="home" className="tab-pane fade in active">
               <h2>Shubham Teotia</h2>
               <p>Software Developer</p>
