@@ -105,9 +105,7 @@ class Benefactor extends React.Component {
       return <div>{this.state.error}</div>;
     }else if(this.state.isLoading) {
       return <div>Loading...</div>
-    }
-    // else if(this.state.pagination.count <= 0){
-    else if(this.state.pagination.count){
+    }else if(this.state.pagination.count <= 0){
       return <NoData objectName="Contributers"/>
     }else{
       return (
