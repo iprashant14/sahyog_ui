@@ -37,7 +37,7 @@ class HomeBenefactor extends Component {
         </p>
         <p>
           Our contributors are important to us because of them only we are able
-          to do help others.
+          to help others.
         </p>
         <p>
           Please be one of them and help us to contribute more in this noble

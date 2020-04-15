@@ -8,20 +8,17 @@ import NoData from "../no_data/NoData";
 class Gallery extends Component {
   state = {
     startDate: new Date(),
-    noData:false,
-    minDate:new Date("03/30/2020"),
-    maxDate:new Date(),
-    imageList1: [],
-    imageList2: [],
-    imageList3: [],
+    noData: false,
+    minDate: new Date("03/30/2020"),
+    maxDate: new Date(),
+    imageList: [],
   };
 
-  displayData = () =>{
-    if(!this.state.noData){
-
+  displayData = () => {
+    if (!this.state.noData) {
       return this.imagesToDisplay();
-    }else{
-      return <NoData />
+    } else {
+      return <NoData />;
     }
   };
 
@@ -46,57 +43,57 @@ class Gallery extends Component {
       });
   };
 
-  imagesToDisplay = () =>{
+  imagesToDisplay = () => {
     return (
-      <div className="row" style={{ maxWidth: "100%" }}>
-          <div id="gallery" className="customRow">
-            <div className="column">
-              {this.state.imageList1.map((value, i) => {
-                return <img src={value} className="zoom" key={i} />;
-              })}
-            </div>
-            <div className="column">
-              {this.state.imageList2.map((value, i) => {
-                return <img src={value} className="zoom" key={i} />;
-              })}
-            </div>
-            <div className="column">
-              {this.state.imageList3.map((value, i) => {
-                return <img src={value} className="zoom" key={i} />;
-              })}
+
+      <div className="row">
+        {this.state.imageList.map((value,i)=>{
+          if(i%2 == 0){
+            return(
+              <div className="col-sm-12 flip-box">
+            <div className="flip-box-inner">
+              <div className="flip-box-front">
+                <img
+                  src={this.state.imageList[i]}
+                  alt=""
+                  style={{ width: "300px", height: "200px" }}
+                />
+              </div>
+              <div className="flip-box-back">
+              <img
+                  src={this.state.imageList[i+1]}
+                  alt=""
+                  style={{ width: "300px", height: "200px" }}
+                />
+              </div>
             </div>
           </div>
-        </div>
+            );
+          }
+          
+        })}
+        
+      
+        
+      </div>
     );
   };
   addToImageList = (imageData) => {
-    let imageList1 = [];
-    let imageList2 = [];
-    let imageList3 = [];
-    for (let i = 0; i < imageData.length; i += 3) {
+    let imageList = [];
+    for (let i = 0; i < imageData.length; i++) {
       if (imageData[i] != null) {
-        imageList1.push(imageData[i].image);
+        imageList.push(imageData[i].image);
       }
-      if (imageData[i + 1] != null) {
-        imageList2.push(imageData[i + 1].image);
-      }
-      if (imageData[i + 2] != null) {
-        imageList3.push(imageData[i + 2].image);
-      }
-      
+     
     }
-    if(imageList1.length == 0 && imageList2.length == 0 && imageList3.length == 0){
-
-      this.setState({noData:true});
-    }else{
+    if (imageList.length == 0 ) {
+      this.setState({ noData: true });
+    } else {
       this.setState({
-        noData:false,
-        imageList1: imageList1,
-        imageList2: imageList2,
-        imageList3: imageList3,
+        noData: false,
+        imageList : imageList,    
       });
     }
-    
   };
 
   componentDidMount = () => {
@@ -106,20 +103,26 @@ class Gallery extends Component {
 
   handleChange = (date) => {
     if (date != null && date != undefined) {
-      this.setState({
-        startDate: date,
-      }, () => {
-        this.serviceCallToBeneficiary(this.state.startDate)
-      });
+      this.setState(
+        {
+          startDate: date,
+        },
+        () => {
+          this.serviceCallToBeneficiary(this.state.startDate);
+        }
+      );
     }
   };
 
   render() {
     return (
       <React.Fragment>
-        <div className="row" style={{ maxWidth: "100%" }}>
-          <div className="col-sm-12 text-center date-picker">
-            <strong className="date-picker-text">View more images by selecting date :</strong>{" "}
+        <div style={{minHeight:"500px"}}>
+        <div className="row img-row-property">
+          <div className="text-center date-picker">
+            <strong className="date-picker-text">
+              View more images by selecting date :
+            </strong>{" "}
             <DatePicker
               maxDate={this.state.maxDate}
               minDate={this.state.minDate}
@@ -128,8 +131,10 @@ class Gallery extends Component {
               onChange={this.handleChange}
             />
           </div>
+          
         </div>
         {this.displayData()}
+        </div>
       </React.Fragment>
     );
   }

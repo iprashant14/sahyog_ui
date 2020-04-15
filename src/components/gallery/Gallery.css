@@ -1,67 +1,3 @@
-.customRow {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 4px 4px;
-  max-width: 100%;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  margin-bottom: 1.5%;
-  margin-top: 1.5%;
-  margin-left: 2%;
-  margin-right: 0.1%;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-  flex: 33.33%;
-  max-width: 33.33%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  display: inline-block;
-  width: 100%;
-}
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    flex: 33.33%;
-    max-width: 33.33%;
-  }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-    margin-left:7.5% ;
-  }
-}
-
-.zoom:hover{
-  transform: scale(1.5);
-  transition: transform .5s ease-in-out;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
 
 .react-datepicker-popper {
   z-index: 9999 !important;
@@ -75,4 +11,72 @@
 
 .date-picker-text {
   margin: 5%;
+}
+
+.flip-box {
+  align-items: center;
+  background-color: transparent;
+  
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+/* Style the back side */
+.flip-box-back {
+  
+  transform: rotateY(180deg);
+}
+
+.img-row-property {
+  max-width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 991.98px) {
+  .flip-box {
+    width: 350px;
+    margin-top: 4%;
+    margin-left: 5%;
+    margin-right: 2%;
+    margin-bottom: 4%;
+  }
+}
+
+/* This is for lg and md*/
+@media screen and (min-width: 992px) {
+  .flip-box {
+    width: 380px;
+    margin-left: 4%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
 }
