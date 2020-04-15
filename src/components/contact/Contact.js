@@ -31,7 +31,7 @@ class Contact extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="contact" className="container-fluid">
+        <div id="contact" className="container-fluid content-height">
           <h3 className="text-center">Contact</h3>
           <p className="text-center">
             <em>We would love to hear from you!</em>

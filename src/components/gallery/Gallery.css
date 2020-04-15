@@ -1,4 +1,3 @@
-
 .react-datepicker-popper {
   z-index: 9999 !important;
 }
@@ -16,9 +15,7 @@
 .flip-box {
   align-items: center;
   background-color: transparent;
-  
   height: 200px;
-  border: 1px solid #bbb;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -51,31 +48,41 @@
 
 /* Style the back side */
 .flip-box-back {
-  
   transform: rotateY(180deg);
 }
 
 .img-row-property {
-  max-width: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
-@media screen and (max-width: 991.98px) {
+/* This is for xs*/
+@media screen and (max-width: 767.98px){
   .flip-box {
-    width: 350px;
     margin-top: 4%;
-    margin-left: 5%;
-    margin-right: 2%;
     margin-bottom: 4%;
+    padding-right: 5%;
+    padding-left: 5%;
   }
 }
+
+/* This is for sm*/
+@media screen and (max-width: 991.98px) and (min-width: 768px){
+  .flip-box {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding-right: 5%;
+    padding-left: 5%;
+    height: 400px;
+  }
+}
+
 
 /* This is for lg and md*/
 @media screen and (min-width: 992px) {
   .flip-box {
-    width: 380px;
-    margin-left: 4%;
+    padding-left: 2%;
+    padding-right: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
   }

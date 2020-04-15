@@ -3,6 +3,7 @@ import "./Benefactor.css";
 import InfoTab from "./info_tab/InfoTab";
 import Pagination from "./pagination/Pagination";
 import Toolbar from "./toolbar/Toolbar";
+import NoData from "../no_data/NoData";
 import axios from "axios";
 
 class Benefactor extends React.Component {
@@ -104,20 +105,22 @@ class Benefactor extends React.Component {
       return <div>{this.state.error}</div>;
     }else if(this.state.isLoading) {
       return <div>Loading...</div>
+    }
+    // else if(this.state.pagination.count <= 0){
+    else if(this.state.pagination.count){
+      return <NoData objectName="Contributers"/>
     }else{
       return (
-        <div className="col-sm-12">
+        <div>
+        <Toolbar selectPerPageLimit={this.selectPerPageLimit} selectedPerPageLimit={this.state.limit}
+                 selectSorting={this.selectSorting} selectedSort={this.state.sort} search={this.search}
+                 searchText={this.state.searchText}/>
 
-          <Toolbar selectPerPageLimit={this.selectPerPageLimit} selectedPerPageLimit={this.state.limit}
-                   selectSorting={this.selectSorting} selectedSort={this.state.sort} search={this.search}
-                   searchText={this.state.searchText}/>
-
-          {this.state.benefactors.map(benefactor => (
-            <InfoTab benefactor={benefactor}/>
-          ))}
-          <Pagination pagination={this.state.pagination} selectPage={this.selectPage} perPage={this.state.limit}
-                      transitionPage={this.transitionPage} perPagePagination={this.state.perPagePagination}/>
-
+        {this.state.benefactors.map(benefactor => (
+          <InfoTab benefactor={benefactor}/>
+        ))}
+        <Pagination pagination={this.state.pagination} selectPage={this.selectPage} perPage={this.state.limit}
+                    transitionPage={this.transitionPage} perPagePagination={this.state.perPagePagination}/>
         </div>
       );
     }
@@ -155,9 +158,11 @@ class Benefactor extends React.Component {
 
   render() {
     return (
-      <div id="benefactor" className="container-fluid text-center">
+      <div id="benefactor" className="container-fluid text-center content-height">
         <h3 className="benefactor-heading">CONTRIBUTERS</h3>
-        {this.fetchComponents()}
+        <div className="col-sm-12">
+          {this.fetchComponents()}
+        </div>
       </div>
     );
   }

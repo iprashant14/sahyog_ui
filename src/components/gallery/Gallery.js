@@ -18,7 +18,7 @@ class Gallery extends Component {
     if (!this.state.noData) {
       return this.imagesToDisplay();
     } else {
-      return <NoData />;
+      return <NoData objectName="Image" />;
     }
   };
 
@@ -46,38 +46,36 @@ class Gallery extends Component {
   imagesToDisplay = () => {
     return (
 
-      <div className="row">
+        <div className="row">
         {this.state.imageList.map((value,i)=>{
           if(i%2 == 0){
             return(
-              <div className="col-sm-12 flip-box">
-            <div className="flip-box-inner">
-              <div className="flip-box-front">
-                <img
-                  src={this.state.imageList[i]}
-                  alt=""
-                  style={{ width: "300px", height: "200px" }}
-                />
+              <div className="col-sm-12 col-md-4 flip-box">
+                <div className="flip-box-inner">
+                  <div className="flip-box-front">
+                    <img
+                      src={this.state.imageList[i]}
+                      alt=""
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
+                  <div className="flip-box-back">
+                  <img
+                      src={this.state.imageList[i+1]}
+                      alt=""
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="flip-box-back">
-              <img
-                  src={this.state.imageList[i+1]}
-                  alt=""
-                  style={{ width: "300px", height: "200px" }}
-                />
-              </div>
-            </div>
-          </div>
             );
           }
-          
         })}
-        
-      
-        
+
       </div>
     );
   };
+
   addToImageList = (imageData) => {
     let imageList = [];
     for (let i = 0; i < imageData.length; i++) {
@@ -91,7 +89,7 @@ class Gallery extends Component {
     } else {
       this.setState({
         noData: false,
-        imageList : imageList,    
+        imageList : imageList,
       });
     }
   };
@@ -117,24 +115,25 @@ class Gallery extends Component {
   render() {
     return (
       <React.Fragment>
-        <div style={{minHeight:"500px"}}>
-        <div className="row img-row-property">
-          <div className="text-center date-picker">
-            <strong className="date-picker-text">
-              View more images by selecting date :
-            </strong>{" "}
-            <DatePicker
-              maxDate={this.state.maxDate}
-              minDate={this.state.minDate}
-              dateFormat="dd/MM/yyyy"
-              selected={this.state.startDate}
-              onChange={this.handleChange}
-            />
+      <div className="container text-center content-height">
+          <div className="row img-row-property">
+            <div className="col-sm-12 date-picker">
+              <strong className="date-picker-text">
+                View more images by selecting date :
+              </strong>{" "}
+              <DatePicker
+                maxDate={this.state.maxDate}
+                minDate={this.state.minDate}
+                dateFormat="dd/MM/yyyy"
+                selected={this.state.startDate}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="col-sm-12">
+              {this.displayData()}
+            </div>
           </div>
-          
-        </div>
-        {this.displayData()}
-        </div>
+      </div>
       </React.Fragment>
     );
   }

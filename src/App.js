@@ -12,7 +12,7 @@ import Benefactor from "./components/benefactor/Benefactor";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="overall-content">
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
