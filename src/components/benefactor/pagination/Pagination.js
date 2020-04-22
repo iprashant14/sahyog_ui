@@ -61,8 +61,8 @@ class Pagination extends React.Component {
             <a>&laquo;</a>
           </li>
           {this.getPageList().map(pageNumber => (
-            <li id={this.state.selectedPage == pageNumber ? "active-page" : ""}
-                onClick={() => this.props.selectPage(this.state.selectedPage, pageNumber)}>
+            <li id={this.state.selectedPage === pageNumber ? "active-page" : ""}
+                onClick={() => this.props.selectPage(pageNumber)} key={pageNumber}>
               <a>{pageNumber}</a>
             </li>
           ))}

@@ -8,13 +8,13 @@ class Dropdown extends React.Component {
     this.state = {
       dropdownButtonTitle: props.dropdownButtonTitle,
       dropdown: props.dropdown,
-      selectedElement: props.selectedElement,
+      selectedElement: typeof props.selectedElement === 'number' ? props.selectedElement.toString() : props.selectedElement,
     };
   }
 
   componentWillReceiveProps = (props) => {
     this.setState({
-      selectedElement: props.selectedElement,
+      selectedElement: typeof props.selectedElement === 'number' ? props.selectedElement.toString() : props.selectedElement,
     });
   };
 
@@ -27,8 +27,8 @@ class Dropdown extends React.Component {
         </button>
         <ul className="dropdown-menu">
           {Object.keys(this.state.dropdown).map(dropdownElement => (
-            <li id={this.state.selectedElement == dropdownElement ? "selected-dropdown-menu": ""}
-                onClick={() => this.props.selectDropdown(dropdownElement)}>
+            <li id={this.state.selectedElement === dropdownElement ? "selected-dropdown-menu": ""}
+                onClick={() => this.props.selectDropdown(dropdownElement)} key={dropdownElement}>
               <a>{this.state.dropdown[dropdownElement]}</a>
             </li>
           ))}

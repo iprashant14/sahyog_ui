@@ -105,12 +105,12 @@ class Contact extends Component {
             </li>
             <li>
               <a data-toggle="tab" href="#menu1">
-                Shubham Agrawal
+                Munna Singh
               </a>
             </li>
             <li>
               <a data-toggle="tab" href="#menu2">
-                Prashant Pandey
+                Animesh Srivastava
               </a>
             </li>
           </ul>
@@ -121,11 +121,11 @@ class Contact extends Component {
               <p>Software Developer</p>
             </div>
             <div id="menu1" className="tab-pane fade">
-              <h2>Shubham Agrawal</h2>
+              <h2>Munna Singh</h2>
               <p>Software Developer</p>
             </div>
             <div id="menu2" className="tab-pane fade">
-              <h2>Prashant Pandey</h2>
+              <h2>Animesh Srivastava</h2>
               <p>Software Developer</p>
             </div>
           </div>

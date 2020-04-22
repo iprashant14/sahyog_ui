@@ -11,8 +11,8 @@ class HomeBenefactor extends Component {
     axios
       .get(`${process.env.REACT_APP_API_BASE_URL}/api/benefactor/random`)
       .then((response) => {
-        if (response.status == 200) {
-          var benefactors = response.data;
+        if (response.status === 200) {
+          let benefactors = response.data;
           if (benefactors != null) {
             console.log(benefactors);
             this.setState({ benefactors: benefactors });

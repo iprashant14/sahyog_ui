@@ -26,16 +26,17 @@ class Benefactor extends React.Component {
     };
   }
 
-  selectPage = (currentPage, selectedPage) => {
-    if (currentPage != selectedPage && selectedPage > 0 &&
+  selectPage = (selectedPage) => {
+    if (this.state.pagination.selectedPage !== selectedPage && selectedPage > 0 &&
       selectedPage <= Math.ceil(this.state.pagination.count/this.state.limit)) {
-      let pagination = this.state.pagination;
-      pagination.selectedPage = selectedPage;
-      this.setState({
-        pagination: pagination,
-        offset: (selectedPage - 1) * this.state.limit,
-        limit: this.state.limit,
-      }, () => {
+      this.setState(prevState => ({
+        pagination: {
+          count: prevState.pagination.count,
+          selectedPage: selectedPage,
+        },
+        offset: (selectedPage - 1) * prevState.limit,
+        limit: prevState.limit
+      }), () => {
         this.componentDidMount();
       });
     }
@@ -43,27 +44,28 @@ class Benefactor extends React.Component {
 
   transitionPage = (selectedPage) => {
     if (selectedPage > 0 && selectedPage <= Math.ceil(this.state.pagination.count/this.state.limit)) {
-      let pagination = this.state.pagination;
-      pagination.selectedPage = selectedPage;
-      this.setState({
-        pagination: pagination,
-        offset: (selectedPage - 1) * this.state.limit,
-        limit: this.state.limit,
-      }, () => {
+      this.setState(prevState => ({
+        pagination: {
+          count: prevState.pagination.count,
+          selectedPage: selectedPage,
+        },
+        offset: (selectedPage - 1) * prevState.limit,
+        limit: prevState.limit,
+      }), () => {
         this.componentDidMount();
       });
     }
   };
 
   selectPerPageLimit = (selectedPerPageLimit) => {
-    if(this.state.limit != selectedPerPageLimit) {
+    if(this.state.limit !== selectedPerPageLimit) {
       this.setState({
         pagination: {
           count: 0,
           selectedPage: 1,
         },
         offset: 0,
-        limit: selectedPerPageLimit,
+        limit: typeof selectedPerPageLimit !== 'number' ? parseInt(selectedPerPageLimit): selectedPerPageLimit
       }, () => {
         this.componentDidMount();
       });
@@ -71,7 +73,7 @@ class Benefactor extends React.Component {
   };
 
   selectSorting = (selectedSort) => {
-    if(this.state.sort != selectedSort) {
+    if(this.state.sort !== selectedSort) {
       this.setState({
         pagination: {
           count: 0,
@@ -86,7 +88,7 @@ class Benefactor extends React.Component {
   };
 
   search = (searchText) => {
-    if (searchText != undefined && this.state.searchText != searchText) {
+    if (searchText !== undefined && this.state.searchText !== searchText) {
       this.setState({
         pagination: {
           count: 0,
@@ -115,7 +117,7 @@ class Benefactor extends React.Component {
                  searchText={this.state.searchText}/>
 
         {this.state.benefactors.map(benefactor => (
-          <InfoTab benefactor={benefactor}/>
+          <InfoTab benefactor={benefactor} key={benefactor.id}/>
         ))}
         <Pagination pagination={this.state.pagination} selectPage={this.selectPage} perPage={this.state.limit}
                     transitionPage={this.transitionPage} perPagePagination={this.state.perPagePagination}/>
@@ -135,16 +137,15 @@ class Benefactor extends React.Component {
         }
       })
       .then((response) => {
-        let pagination = this.state.pagination;
-        pagination.count = response.data.count;
-
-        this.setState({
+        this.setState(prevState => ({
           benefactors: response.data.results,
-          pagination: pagination,
+          pagination: {
+            count: response.data.count,
+            selectedPage: prevState.pagination.selectedPage,
+          },
           offset: this.state.offset,
-          // limit: this.state.limit,
           isLoading: false,
-        });
+        }));
       })
       .catch((error) => {
         this.setState({

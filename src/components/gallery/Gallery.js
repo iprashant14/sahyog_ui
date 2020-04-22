@@ -31,8 +31,8 @@ class Gallery extends Component {
         },
       })
       .then((response) => {
-        if (response.status == 200) {
-          var imageData = response.data.results;
+        if (response.status === 200) {
+          let imageData = response.data.results;
           if (imageData != null) {
             this.addToImageList(imageData);
           }
@@ -48,7 +48,7 @@ class Gallery extends Component {
 
         <div className="row">
         {this.state.imageList.map((value,i)=>{
-          if(i%2 == 0){
+          if(i%2 === 0){
             return(
               <div className="col-sm-12 col-md-4 flip-box">
                 <div className="flip-box-inner">
@@ -84,7 +84,7 @@ class Gallery extends Component {
       }
      
     }
-    if (imageList.length == 0 ) {
+    if (imageList.length === 0 ) {
       this.setState({ noData: true });
     } else {
       this.setState({
@@ -100,7 +100,7 @@ class Gallery extends Component {
   };
 
   handleChange = (date) => {
-    if (date != null && date != undefined) {
+    if (date != null && date !== undefined) {
       this.setState(
         {
           startDate: date,

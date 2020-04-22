@@ -12,9 +12,9 @@ class Toolbar extends React.Component {
       selectedPerPageLimit: this.props.selectedPerPageLimit,
       // JSON content api value as keys and display value as value
       perPageAvailableLimits: {
-        10: "10",
-        20: "20",
-        50: "50"
+        "10": "10",
+        "20": "20",
+        "50": "50"
       },
       selectedSort: this.props.selectedSort,
       availbleSortings: {

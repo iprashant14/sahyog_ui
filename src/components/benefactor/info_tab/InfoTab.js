@@ -3,9 +3,6 @@ import "./InfoTab.css";
 
 class InfoTab extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="col-sm-12 info-tab">
@@ -19,7 +16,7 @@ class InfoTab extends React.Component {
               <strong>{this.props.benefactor.name}</strong>
             </p>
             <p>
-              <italic>{this.props.benefactor.description}</italic>
+              <em>{this.props.benefactor.description}</em>
             </p>
           </div>
         </div>

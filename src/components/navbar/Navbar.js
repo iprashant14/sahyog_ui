@@ -45,7 +45,7 @@ class Navbar extends React.Component {
           <div className={this.state.collapsed ? "collapse navbar-collapse": "navbar-collapse collapse in"} id="myNavbar">
             <ul className="nav navbar-nav navbar-right">
               {Object.keys(this.state.displayNamePathMapping).map(displayName => (
-                <li>
+                <li key={displayName}>
                   <Link to={this.state.displayNamePathMapping[displayName]} onClick={()=> this.toggleCollapse()}>
                     {displayName}
                   </Link>
