@@ -158,7 +158,7 @@ class Benefactor extends React.Component {
   render() {
     return (
       <div id="benefactor" className="container-fluid text-center content-height">
-        <h3 className="benefactor-heading">CONTRIBUTERS</h3>
+        <h3 className="benefactor-heading">CONTRIBUTORS</h3>
         <div className="col-sm-12">
           {this.fetchComponents()}
         </div>

@@ -20,8 +20,8 @@ class Toolbar extends React.Component {
       availbleSortings: {
         "name": "Name Asc",
         "-name": "Name Desc",
-        "created": "Created Asc",
-        "-created": "Created Desc",
+        "created": "Date Asc",
+        "-created": "Date Desc",
       }
     };
   }
